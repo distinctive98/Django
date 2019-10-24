@@ -1,0 +1,7 @@
+<form action="/pages/match/" method="POST" class="container">
+    <!-- POST 요청의 경우 아래 값을 항상 입력해야 함-->
+    {% csrf_token %}
+    <span>당신의 이름 : </span><input type="text" name="me">
+    <span>그(녀)의 이름 : </span><input type="text" name="you">
+    <button type="submit">제출</button>
+</form>
