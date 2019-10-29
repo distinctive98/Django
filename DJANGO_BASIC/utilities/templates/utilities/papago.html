@@ -1,0 +1,10 @@
+{% extends 'utilities/base.html' %}
+{% block titile %} 번역 {% endblock %}
+{% block body %}
+<h1>PAPAGO</h1>
+<h2>영어 번역을 원하는 한국어를 입력해주세요</h2>
+<form action="/utilities/translated/">
+    <input type="text" name="text">
+    <input type="submit">
+</form>
+{% endblock%}

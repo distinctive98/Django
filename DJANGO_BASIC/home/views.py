@@ -2,14 +2,15 @@ from django.shortcuts import render, HttpResponse
 import random
 import requests
 import json
+from datetime import datetime
 
 def index(request) : 
     #return HttpResponse('Welcome to Django')
-    return render(request, 'index.html')
+    return render(request, 'home/index.html')
 
 def hola(request) :
     #return HttpResponse('hola~')
-    return render(request, 'hola.html')
+    return render(request, 'home/hola.html')
 
 def dinner(request):
     menus = ['피자', '치킨', '족발']
@@ -38,10 +39,57 @@ def lotto(request):
 
 
 def hello(request, name):
-    return render(request, 'hello.html', {'name':name})
+    return render(request, 'home/hello.html', {'name':name})
 
 def introduce(request, name, age):
-    return render(request, 'introduce.html', {'name':name, 'age':age})
+    return render(request, 'home/introduce.html', {'name':name, 'age':age})
 
 def multifly(request, num1, num2):
-    return render(request, 'multifly.html', {'multifly':num1*num2})
+    return render(request, 'home/multifly.html', {'multifly':num1*num2})
+
+def image(request):
+    return render(request, 'home/image.html')
+
+def isbirth(request):
+    today = datetime.now()
+    if today.month == 6 and today.day == 27:
+        result = True
+    else:
+        result = False
+    return render(request, 'home/isbirth.html', {'result':result})
+
+def ispal(request, word):
+    if word == word[::-1]:
+        result = True
+    else:
+        result = False
+    return render(request, 'home/ispal.html', {'word':word, 'result':result})
+
+def throw(request):
+    return render(request, 'home/throw.html')
+
+def catch(request):
+    message = request.GET.get('message')
+    return render(request, 'home/catch.html', {'message':message})
+
+def word(request):
+    return render(request, 'home/word.html')
+
+def palin(request):
+    drome = request.GET.get('word')
+    if drome == drome[::-1]:
+        result = True
+    else:
+        result = False
+    return render(request, 'palin.html', {'drome':drome, 'result':result})
+
+def user_new(request):
+    return render(request, 'home/user_new.html')
+
+def user_create(request):
+    user_name = request.POST.get('name')
+    user_password = request.POST.get('pwd')
+    return render(request, 'home/user_create.html', {'user_name':user_name, 'user_password':user_password})
+
+def static_example(request):
+    return render(request, 'home/static_example.html')

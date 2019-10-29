@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- w = word -->
+    <!-- p = paragraph -->
+    <!-- random = 무작위 -->
+
+    <h3>5. 글자수 제한(truncate)</h3>
+    <p>{{ my_sentence|truncatewords:3 }}</p> 단어 단위로 제한
+    <p>{{ my_sentence|truncatechars:3 }}</p> 문자 단위로 제한(3번째 문자는 포함x)
+    <p>{{ my_Sentence|truncatewords:10 }}</p> 문자 단위로 제한(10번째 문자는 포함x)
+    <hr>
+
+    <h3>6. 글자 관련 필터</h3>
+    <p>{{ 'abc'|length }} </p>
+    <p>{{ 'ABC'|lower }}</p>
+    <p>{{ my_sentence|title }}</p>
+    <p>{{ 'abc def' | capfirst }}</p>
+    <p>{{ menus|random }}</p>
+    <hr>
+
+    <!-- title : 첫 글자들을 대문자로 변환 -->
+    <!-- capfirst : 값의 첫 번째 문자를 대문자로 바꾼다 -->
+    <!-- random : 주어진 리스트에서 요소를 랜덤하게 뽑아냄 -->
+
+    <h3>7. 연산</h3>
+    <p>{{ 4|add:6 }}</p>
+    <hr>
+
+    <!-- pip install django-mathfilters / installed apps에 동재 /load mathfilters -->
+    <!-- sub = subtraction -->
+    <!-- mul = multiplication -->
+    <!-- div - division -->
+    <!-- abs = absolute value -->
+
+    <h3>8. 날짜 표현</h3>
+    <p>{{ datetimenow }}</p>
+    <p>{% now "DATETIME_FORMAT" %}</p>
+    <p>{% now "SHORT_DATETIME_FORMAT" %}</p>
+    <p>{% now "DATE_FORMAT" %}</p>
+    <p>{% now "SHORT_DATE_FORMAT" %}</p>
+    <p>{% now "Y년 m월 d일 (D) h:i" %}</p>
+    <p>{% now "Y" as current_year%}
+    Copyright{{ current_year }}</p>
+
+    <h3>9. 기타</h3>
+    {{ 'google.com'|urlize }}
+
+
+</body>
+</html>
