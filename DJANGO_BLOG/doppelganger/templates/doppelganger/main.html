@@ -1,0 +1,13 @@
+{% extends 'doppelganger/base.html '%}
+
+{% block title %}도플갱어{%endblock%}
+
+{% block body %}
+    <h1 class="text-center">도플갱어</h1>
+    <hr>
+    <form action="{% url 'doppelganger:confirm' %}" method="POST">
+        {% csrf_token %}
+        너의 이름 : <input type="text" name="name"><br>
+        <button class="btn btn-danger">도플갱어 확인하기</button>
+    </form>
+{% endblock %}

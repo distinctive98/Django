@@ -1,0 +1,14 @@
+{% extends 'doppelganger/base.html '%}
+
+{% block title %}도플갱어{%endblock%}
+
+{% block body %}
+    <h1 class="text-center">도플갱어</h1>
+    <hr>
+    
+    <h3>도플갱어의 이름은 <span class="text-danger">{{ doppelganger.name }}입니다</span></h3>
+    <h3>도플갱어는 현재 <span class="text-danger">{{ doppelganger.address }}에 살고 있습니다</span></h3>
+    <h3>도플갱어의 직업은 <span class="text-danger">{{ doppelganger.job }}입니다</span></h3>
+    <hr>
+    <a href="{% url 'doppelganger:main' %}" class="btn btn-secondary">뒤로가기</a>
+{% endblock %}
