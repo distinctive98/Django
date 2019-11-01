@@ -1,0 +1,75 @@
+{% extends 'movies/base.html' %}
+
+{% block title %}CREATE{% endblock%}
+
+{% block body %}
+<h1 class="text-center">CREATE</h1>
+<hr>
+<div class="w-50 p-3 text-center" style="background-color:#eee; margin:auto;">
+    <form action="/movies/create/" method="POST">
+        {% csrf_token %}
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+            <span class="input-group-text">Title</span>
+            </div>
+            <input type="text" class="form-control" name="title">
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+            <span class="input-group-text">Title(EN)</span>
+            </div>
+            <input type="text" class="form-control" name="title_en">
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+            <span class="input-group-text">Audience</span>
+            </div>
+            <input type="number" class="form-control" name="audience">
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+            <span class="input-group-text">Open Date</span>
+            </div>
+            <input type="date" class="form-control" name="open_date">
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+            <span class="input-group-text">Genre</span>
+            </div>
+            <input type="text" class="form-control" name="genre">
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+            <span class="input-group-text">Grade</span>
+            </div>
+            <input type="text" class="form-control" name="watch_grade">
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+            <span class="input-group-text">Score</span>
+            </div>
+            <input type="number" class="form-control" name="score" step="0.01">
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+            <span class="input-group-text">URL</span>
+            </div>
+            <input type="text" class="form-control" name="poster_url">
+        </div>
+
+        <div class="form-group">
+            <textarea class="form-control" name="description" rows="3">Discription</textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">등록하기</button>
+        <a href="{% url 'movies:index' %}" type="submit" class="btn btn-secondary">뒤로가기</a>
+    </form>
+</div>
+{% endblock %}

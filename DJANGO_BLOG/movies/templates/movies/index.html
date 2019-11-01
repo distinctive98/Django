@@ -1,0 +1,20 @@
+{% extends 'movies/base.html' %}
+
+{% block title %}INDEX{% endblock %}
+
+{% block body %}
+    <h1 class="text-center">MOVIE LIST</h1>
+    <hr>
+    <div class="w-50 p-3 text-center" style="background-color:#eee; margin:auto;">
+        <a href="{% url 'movies:new' %}" class="btn btn-danger">NEW</a>
+        <hr>
+        {% for movie in movies %}
+            <h3><a href="{% url 'movies:detail' movie.pk %}">{{ movie.title }}</a></h3>
+            <h5>{{ movie.score }}</h5>
+            <hr>
+        {% endfor %}
+    </div>
+    
+    <hr>
+
+{% endblock %}

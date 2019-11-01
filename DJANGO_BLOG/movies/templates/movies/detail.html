@@ -1,0 +1,19 @@
+{% extends 'movies/base.html' %}
+
+{% block title %}DETAIL{% endblock %}
+
+{% block body %}
+<h1 class="text-center">DETAIL</h1>
+<div class="w-50 p-3 text-center" style="background-color:#eee; margin:auto;">
+    <p class="h3">{{ movie.title }}</p>
+    <p class="h5">{{ movie.title_en }}</p>
+    <hr>
+    <p class="h5">Audience : {{ movie.audience }}</p>
+    <p class="h5">Open Date : {{ movie.open_date }}</p>
+    <p class="h5">Genre : {{ movie.genre }}</p>
+    <p class="h5">Score : {{ movie.score }}</p>
+    <img src="{{ movie.poster_url }}" alt="" width="100%">
+    <p class="h6">{{ movie.description }}</p>
+    <a href="{% url 'movies:index' %}" class="btn btn-secondary">뒤로가기</a>
+</div>
+{% endblock %}
