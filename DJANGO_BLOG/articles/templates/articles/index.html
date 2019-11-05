@@ -1,9 +1,11 @@
 {% extends 'articles/base.html' %}
+{% load static %}
 
 {% block title %}CRUD{% endblock %}
 
 {% block body %}
 <h1 class="text-center">Articles</h1>
+<img src="{% static 'images/dog.jpg' %}" alt="sample" width='200px'>
 <a href="{% url 'articles:create' %}">[NEW]</a>
 <hr>
 {% for article in articles %}

@@ -5,10 +5,11 @@
 {% block body %}
 <h1 class="text-center">NEW</h1>
 <!-- action이 빈칸이면 자기 자신으로 요청을 함 -->
-<form action="" method="POST">
+<form action="" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     제목 : <input type="text" name="title"><br>
     내용 : <textarea name="content" id="" cols="30" rows="10"></textarea><br>
+    이미지 : <input type="file" name="image" accept="image/*">
     제출 : <input type="submit">
 </form>
 <hr>

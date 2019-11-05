@@ -1,15 +1,22 @@
 {% extends 'articles/base.html' %}
-
+{% load static %}
 {% block title %}EDIT{% endblock %}
 
 {% block body %}
     <h1 class="class">EDIT</h1>
     <h2>{{ article.pk }}번 글</h2>
     <hr>
-    <form action="{% url 'articles:update' article.pk %}" method="POST">
+    {% if article.image %}
+    <img src="{{ article.image.url }}" alt="">
+    {% else %}
+    <!-- <img src="{% static 'article/images/no.jpg' %}" alt=""> -->
+    {% endif %}
+    <form action="{% url 'articles:update' article.pk %}" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <input type="text" name="title" value="{{ article.title }}"><br>
         <textarea name="content" id="" cols="30" rows="10">{{ article.content }}</textarea><br>
+        <input type="text">
+        <input type="file" name="image" accept="image/*">
         <input type="submit">
     </form>
     <hr>
