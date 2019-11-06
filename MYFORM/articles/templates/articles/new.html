@@ -1,0 +1,12 @@
+{% extends 'articles/base.html' %}
+{% block body %}
+<h1 class='text-center'>CREATE</h1>
+<hr>
+<form action="#" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <!-- 제목 : <input type="text" name="title">
+    내용 : <textarea name="content"cols="30" rows="10"></textarea> -->
+    <input type="submit" value="저장">
+</form>
+{% endblock%}

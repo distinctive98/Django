@@ -5,13 +5,13 @@ from imagekit.processors import ResizeToFill, Thumbnail
 class Article(models.Model):
     title = models.CharField(max_length=10)
     content = models.TextField()
-    #image = models.ImageField(blank=True) #이미지 없는 게시글의 경우 NULL값 인정
-    image = ProcessedImageField(
-        upload_to = 'articles/images',      # 저장 위치(MEDIA_ROOT/articles/images)
-        processors = [Thumbnail(200,300)],  # 처리할 작업 목록
-        format = 'JPG',                     # 저장 포맷
-        options = {'quality' : 90},         # 추가 옵션
-    )
+    image = models.ImageField(blank=True) #이미지 없는 게시글의 경우 NULL값 인정
+    # image = ProcessedImageField(
+    #     upload_to = 'articles/images',      # 저장 위치(MEDIA_ROOT/articles/images)
+    #     processors = [Thumbnail(200,300)],  # 처리할 작업 목록
+    #     format = 'JPG',                     # 저장 포맷
+    #     options = {'quality' : 90},         # 추가 옵션
+    # )
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

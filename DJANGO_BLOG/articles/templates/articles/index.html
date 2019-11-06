@@ -5,7 +5,7 @@
 
 {% block body %}
 <h1 class="text-center">Articles</h1>
-<img src="{% static 'images/dog.jpg' %}" alt="sample" width='200px'>
+<img src="{% static 'images/dog.jpg' %}" alt="sample" width='200px'><br>
 <a href="{% url 'articles:create' %}">[NEW]</a>
 <hr>
 {% for article in articles %}
