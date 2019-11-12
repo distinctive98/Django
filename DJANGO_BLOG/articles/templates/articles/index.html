@@ -6,7 +6,11 @@
 {% block body %}
 <h1 class="text-center">Articles</h1>
 <img src="{% static 'images/dog.jpg' %}" alt="sample" width='200px'><br>
+{% if user.is_authenticated %}
 <a href="{% url 'articles:create' %}">[NEW]</a>
+{% else %}
+<a href="{% url 'accounts:login' %">[새 글을 작성하려면 로그인하세요]</a>
+{% endif %}
 <hr>
 {% for article in articles %}
     <p>No.{{ article.pk }}</p>

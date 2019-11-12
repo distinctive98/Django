@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Article, Comment
+from django.views.decorators.http import require_POST
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def index(request):
@@ -10,6 +12,7 @@ def index(request):
 def new(request):
     return render(request, 'articles/new.html')
 
+@login_required
 def create(request):
     # 1.
     # article = Article()
@@ -44,6 +47,7 @@ def delete(request, article_id):
     else :
         return redirect('article:detail', article.pk)
 
+@login_required
 def update(request, article_id):
     article = Article.objects.get(pk=article_id)
     if request.method == 'POST':
