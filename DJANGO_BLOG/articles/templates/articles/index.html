@@ -16,7 +16,7 @@
     <p>No.{{ article.pk }}</p>
     <p>글 제목 : {{ article.title }}</p>
     <!-- <p>글 내용 : {{ article.content }}</p> -->
-    <a href="{% url 'articles:detail' article.pk %}">[글 상세보기]</a>
+    <a href="{% url 'articles:detail' article.pk %}">[글 상세보기]</a> | 작성자: {{article.user}}
     <hr>
 {% endfor %}
 {% endblock %}
